@@ -1,0 +1,22 @@
+Print Hello:
+python dirlididi.py submit Q8lIaDijI JB8yHYMECA7u Programa.java
+
+Expressões: 
+python dirlididi.py submit QCT9g3lJ2 JB8yHYMECA7u Dobro.java
+
+Passou com média 7!:
+python dirlididi.py submit QN9tFkXbc JB8yHYMECA7u PontoFlutuante.java
+
+Função monótona:
+python dirlididi.py submit O74TDGIEa JB8yHYMECA7u FuncaoMonotona.java
+
+Calculadora:
+python dirlididi.py submit R7qL9alKS JB8yHYMECA7u Calculadora.java
+
+Acima da média:
+python dirlididi.py submit PoFnkEzvk JB8yHYMECA7u AcimaDaMedia.java
+
+Wally:
+python dirlididi.py submit SlfR6pBmC JB8yHYMECA7u Wally.java
+
+
