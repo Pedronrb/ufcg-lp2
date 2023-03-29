@@ -4,36 +4,34 @@ import java.util.Scanner;
  * 
  * @author Pedro Nascimento da Silva - 122111054
  */
-
-import javax.print.DocFlavor.STRING;
 public class WallyVersionWhile {
-    public static void main(String[] args) {
-        Scanner sc = new Scanner(System.in);
+	
+	public static void main(String[] args) {
+		
+		Scanner sc = new Scanner(System.in);
         String entrada = sc.nextLine();
         String[] listaNomes = entrada.split(" ");
         String novoNome = "";
         int count = 0;
-
-        for(String nome: listaNomes){
-            count += 1;
-            System.out.println(nome);
-
-            while (nome.equalsIgnoreCase("wally")) {
-
-                if(nome.length() == 5  ){
-                    novoNome = nome;           
-                }
-
-                if(count == listaNomes.length){
-                    if(novoNome.equalsIgnoreCase("")) {
-                        System.out.println("?");
-                    }else {
-                        System.out.println(novoNome);
-                    }
-                    entrada = sc.nextLine();
-                    listaNomes = entrada.split(" ");
-                    }       
-            }
+        
+        while(!entrada.equalsIgnoreCase("wally")) {
+        	for (String nome : listaNomes) {
+        		count++;
+				if(nome.length() == 5) {
+					novoNome = nome;
+				}
+				
+				if(count == listaNomes.length) {
+					if(novoNome.equalsIgnoreCase("")) {
+	        			 novoNome = "?";
+	                 }
+	        		 System.out.println(novoNome);
+				}
+			}
+        	novoNome = "";
+        	count = 0;
+        	entrada = sc.nextLine();
+            listaNomes = entrada.split(" ");
         }
-    } 
+	}
 }

@@ -17,6 +17,13 @@ Acima da média:
 python dirlididi.py submit PoFnkEzvk JB8yHYMECA7u AcimaDaMedia.java
 
 Wally:
-python dirlididi.py submit SlfR6pBmC JB8yHYMECA7u Wally.java
+python dirlididi.py submit SlfR6pBmC JB8yHYMECA7u WallyVersionWhile.java
+
+Jogo da adivinhação:
+python dirlididi.py submit PmZq7rg1I JB8yHYMECA7u JogoDaAdivinhacao.java
+
+Palavras poéticas:
+python dirlididi.py submit Soz38f6v2 JB8yHYMECA7u PalavrasPoeticas.java
+
 
 
