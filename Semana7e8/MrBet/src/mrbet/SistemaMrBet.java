@@ -57,6 +57,7 @@ public class SistemaMrBet {
 				for(Time time: times) {
 					if(time.getCodigo().equals(codTime)) {
 						campeonato.adicionarTime(time.getCodigo(), time.getNome(), time.getMascote());	
+						time.setQntdCamp(time.getQntdCamp() + 1);
 						return "TIME INCLUÍDO NO CAMPEONATO!";
 					}
 				}
@@ -120,6 +121,15 @@ public class SistemaMrBet {
 			}
 			Aposta aposta = new Aposta(codTime, nomeCamp, colocacao, valorAposta);
 			apostas.add(aposta);
+			
+			if(colocacao == 1) {
+				for(Time time: times) {
+					if(time.getCodigo().equals(codTime)) {
+						time.setPrimeiraPosi(time.getPrimeiraPosi() + 1);
+					}
+				}
+			}
+			
 			return"APOSTA REGISTRADA!";
 		}	
 		return "APOSTA NÃO REGISTRADA!";
@@ -136,10 +146,55 @@ public class SistemaMrBet {
 		
 		int j = 1;
 		for(Aposta aposta: apostas) {
-			resp += j + ". " + recuperarTime(aposta.getCodTime())
+			resp += aposta + ". " + recuperarTime(aposta.getCodTime())
 			+ "\n" + exibeCamp(aposta.getCodTime()) + "\n" + "R$ " + aposta.getValorAposta();
 			j+=1;
 		}
 		return resp;
+	}
+	
+	public String qntdCampTime() {
+		List<Time> timesMaisCamp = new ArrayList<>();
+		List<Time> timesMenosCamp = new ArrayList<>();
+		String retorno = "";
+		int maior = times.get(0).getQntdCamp();
+		int menor = times.get(0).getQntdCamp();
+		Time timeComMais = null;
+
+		for(Time time: times) {
+			if(time.getQntdCamp() >= maior  ) {
+				maior = time.getQntdCamp();
+				timeComMais = time;
+				
+			}
+			else if(time.getQntdCamp() == 0) {
+				menor = time.getQntdCamp();
+				timesMenosCamp.add(time);
+			}
+		}
+		
+		for(Time time: times) {
+			if(timeComMais.getQntdCamp() == time.getQntdCamp()) {
+				timesMaisCamp.add(time);
+			}
+		}
+		retorno += "Participação mais frequente em campeonatos\n";
+		for(Time time: timesMaisCamp) {
+			 retorno += time.toString() + "\n\n";
+			 
+		}
+		retorno += "Ainda não participou de campeonato\n";
+		for(Time time: timesMenosCamp) {
+			retorno +=  time.toString() + "\n\n";
+		}
+		
+		retorno += "Popularidade em apostas\n"; 
+		for(Time time: times) {
+			if(time.getPrimeiraPosi() >= 1) {
+				retorno += time.getNome() + " / " + time.getPrimeiraPosi() + "\n";
+			}
+			 
+		}
+		return retorno;
 	}
 }

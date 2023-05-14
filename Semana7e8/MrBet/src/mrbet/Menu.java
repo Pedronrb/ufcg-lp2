@@ -11,7 +11,6 @@ public class Menu {
 			exibeMenu();
 			
 		}
-		
 
 	public static void exibeMenu() {
 		
@@ -22,12 +21,13 @@ public class Menu {
 				+ "(E)Exibir campeonatos que o time participa\r\n"
 				+ "(T)Tentar a sorte e status\r\n"
 				+ "(!)Já pode fechar o programa!\r\n"
-				+ "\r\n"
+				+ "(H) Histórico\r\n"
 				+ "Opção>");
+		
 		
 		String entrada = sc.next().toUpperCase();
 		
-		if (! "MR.BET!".contains(entrada) ) {
+		if (! "MR.BET!H".contains(entrada) ) {
 			throw new IllegalArgumentException("Aposta encerrada!!");
 			
 		}
@@ -88,13 +88,13 @@ public class Menu {
 			String codigo = sc.next();
 			
 			if(codigo.equalsIgnoreCase("A")) {
-				System.out.println("Código: ");
+				System.out.print("Código: ");
 				String cod = sc.next();
-				System.out.println("Campeonato: ");
+				System.out.print("Campeonato: ");
 				String camp = sc.next();
-				System.out.println("Colocação: ");
+				System.out.print("Colocação: ");
 				int coloc = sc.nextInt();
-				System.out.println("Valor da aposta: ");
+				System.out.print("Valor da aposta: ");
 				Double valor = sc.nextDouble();
 				System.out.println(mrBet.criarAposta(cod, camp, coloc, valor));
 			}
@@ -107,6 +107,9 @@ public class Menu {
 		else if(entrada.equals("!")) {
 			System.out.println("Por hoje é só pessoal!");
 			return;
+		}
+		else if(entrada.equals("H")) {
+			System.out.println(mrBet.qntdCampTime());
 		}
 		
 		exibeMenu();

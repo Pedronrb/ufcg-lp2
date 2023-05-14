@@ -5,6 +5,8 @@ public class Time {
 	String codigo;
 	String nome; 
 	String mascote; 
+	int qntdCamp = 0;
+	int primeiraPosi = 0;
 	
 	public Time(String codigo, String nome, String mascote) {
 		this.codigo = codigo;
@@ -34,6 +36,25 @@ public class Time {
 
 	public void setMascote(String mascote) {
 		this.mascote = mascote;
+	}
+	
+	
+	public int getQntdCamp() {
+		return qntdCamp;
+	}
+
+	public void setQntdCamp(int qntdCamp) {
+		this.qntdCamp = qntdCamp;
+	}
+	
+	
+
+	public int getPrimeiraPosi() {
+		return primeiraPosi;
+	}
+
+	public void setPrimeiraPosi(int primeiraPosi) {
+		this.primeiraPosi = primeiraPosi;
 	}
 
 	@Override
